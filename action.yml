@@ -1,0 +1,55 @@
+# action.yml
+name: 'Resolute-CI-Action'
+description: 'Conduct Resolute analysis on a component of an AADL model'
+inputs:
+  component-to-analyze:  # id of input
+    description: '**Required** The name of the AADL component to implementation analyze.'
+    required: true
+    default: 'Top.impl'
+  output-path:
+    description: '**Required** The absolute output path for the JSON formatted results.'
+    required: true
+    default: 'Top.impl'
+  workspace-location: # dir of workspace
+    description: 'The path to the workspace containing the AADL projects (equivalent to -path option for headless Eclipse).'
+    required: false
+    default: '.'
+  project-path:
+    description: 'The path, relative to the workspace location, to the directory containing the AADL project.'
+    required: false
+    default: '.'
+  validation-only:
+    description: 'Perform syntax validation only.'
+    required: false
+    default: 'false'
+  csv-output:
+    description: 'Generate output in comma-separated values (CSV) format rather than JSON.'
+    required: false
+    default: 'false'
+  exit-on-warning:
+    description: 'Terminate analysis on warnings as well as errors.'
+    required: false
+    default: 'false'
+  supplementaty-aadl:
+    description: 'A space-delimited list of absolute paths to additional AADL files outside the workspace project.'
+    required: false
+    default: 'false'
+outputs:
+  timestamp:
+    description: 'The date/time that the analysis was completed'
+  status:
+    description: 'Summary of analysis completion status'
+  status-messages: 
+    description: 'Description of analysis completion status'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.workspace-location }}
+    - ${{ inputs.component-to-analyze }}
+    - ${{ inputs.project-path }}
+    - ${{ inputs.output-path }}
+    - ${{ inputs.validation-only }}
+    - ${{ inputs.csv-output }}
+    - ${{ inputs.exit-on-warning }}
+    - ${{ inputs.supplementary-aadl }}
