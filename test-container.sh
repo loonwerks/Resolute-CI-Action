@@ -17,7 +17,7 @@ docker run --rm -v $1:${GITHUB_WORKSPACE} \
     -e GITHUB_WORKSPACE=${GITHUB_WORKSPACE} \
     -e GITHUB_OUTPUT='/dev/stdout' \
     --entrypoint /home/runner/entrypoint.sh \
-    ghcr.io/loonwerks/fmide-tools:1.0.0 \
+    ghcr.io/loonwerks/inspecta-tools:4.20250825.20d1bda \
     "${workspace_location}" "${component_to_analyze}" "${project_path}" "${output_path}" \
     "${validation_only}" "${csv_output}" "${exit_on_warning}" "${supplementary_aadl}"
 

@@ -9,7 +9,7 @@ echo "csv-output: $6"
 echo "exit-on-warning: $7"
 echo "supplementary-aadl: $8"
 
-runCommand=(/fmide/osate -application com.rockwellcollins.atc.resolute.cli.Resolute)
+runCommand=(/Sireum/bin/linux/fmide/fmide -application com.rockwellcollins.atc.resolute.cli.Resolute)
 
 runCommand+=(-noSplash -data ${GITHUB_WORKSPACE}/$1 -compImpl $2)
 
