@@ -9,7 +9,7 @@ inputs:
   output-path:
     description: '**Required** The absolute output path for the JSON formatted results.'
     required: true
-    default: 'Top.impl'
+    default: 'Resolute_output.json'
   workspace-location: # dir of workspace
     description: 'The path to the workspace containing the AADL projects (equivalent to -path option for headless Eclipse).'
     required: false
